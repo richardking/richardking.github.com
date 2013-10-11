@@ -5,7 +5,7 @@ date:   2013-10-11 12:14:19
 categories: ruby rails
 ---
 
-`before(:all)` vs `before(:each)` vs `let` vs `let!`
+Understanding when/why to use `before(:all)` vs `before(:each)` vs `let` vs `let!`
 
 I've learned to use `before` and `let` to DRY up RSpec tests, as well as make them more readable. However, I didn't have a complete grasp of what each of them did. I decided to write some code that helped me understand exactly what each of them do, and when I should be using each one.
 
