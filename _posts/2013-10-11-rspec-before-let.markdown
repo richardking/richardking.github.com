@@ -18,9 +18,11 @@ end
 {% endhighlight %}
 
 * runs before each describe/context block
-* each insert persists in the database
+* each insert persists in the database (does not get automatically cleaned up/deleted)
 
 ![before-all code example](/assets/before-all.png)
+
+After the code example above is run, there will be 3 records in the Tag database.
 
 **before(:each)**
 
