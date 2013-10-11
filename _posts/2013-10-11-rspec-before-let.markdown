@@ -41,7 +41,7 @@ end
 **let**
 
 {% highlight ruby %}
-let(:tag) { FactoryGirl.create(:tag, :permalink => "let")
+let(:tag) { FactoryGirl.create(:tag, :permalink => "let") }
 {% endhighlight %}
 
 * lazy-loads the object
@@ -53,7 +53,7 @@ let(:tag) { FactoryGirl.create(:tag, :permalink => "let")
 **let-bang**
 
 {% highlight ruby %}
-let(:tag2) { FactoryGirl.create(:tag, :permalink => "let-bang")
+let(:tag2) { FactoryGirl.create(:tag, :permalink => "let-bang") }
 {% endhighlight %}
 * runs right away at the beginning of each it-block
 * cached across multiple calls in the same example but not across examples
