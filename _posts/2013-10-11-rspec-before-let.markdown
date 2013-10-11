@@ -22,7 +22,7 @@ end
 
 ![before-all code example](/assets/before-all.png)
 
-After the code example above is run, there will be 3 records in the Tag database.
+After the above code example is run, there will be 3 records stored in the Tag table.
 
 **before(:each)**
 
