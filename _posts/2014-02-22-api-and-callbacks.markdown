@@ -7,7 +7,7 @@ categories: ruby rails
 
 How to include API calls in Rails callback hooks without blowing up your tests
 
-While integrating an Instagram media consumer into our app, I ran into a unique use case- I needed to call the Instagram API during model creation/modification, but including after_create and after_save callback hooks in the model would make my RSpec tests fail. This was because if I used `FactoryGirl.create` to create that model, it would try to make an unnecessary API call.
+While integrating an Instagram media consumer into our app, I ran into a unique use case- I needed to call the Instagram API during model creation/modification, but including `after_create` and `after_save` callback hooks in the model would make my RSpec tests fail. This was because if I used `FactoryGirl.create` to create that model, it would try to make an unnecessary API call.
 
 Here is the original model:
 
@@ -42,7 +42,7 @@ class InstagramAccount < ActiveRecord::Base
 end
 {% endhighlight %}
 
-As you can see, it includes an after_create callback to ping the Instagram API to get the user's instagram_id and full_name. It also has an after_save callback to ping the Instagram API to follow or unfollow the user on our configured Instagram account.
+As you can see, it includes an `after_create` callback to ping the Instagram API to get the user's `instagram_id` and `full_name`. It also has an `after_save` callback to ping the Instagram API to follow or unfollow the user on our configured Instagram account.
 
 This resulted in a complicated model test where I had to instantiated the `InstagramAccount` object, then stub the two callbacks out, before actually saving it to the test database. Being in Rails 2 made it extra ugly because I couldn't use the `#any_instance` RSpec helper.
 
@@ -98,7 +98,7 @@ describe Admin::TeamStreamsController do
 end
 {% endhighlight %}
 
-This clearly was a code smell, so after some research, I tried re-factoring the callbacks into an Observer class. This resulted in the after_create and after_save hooks being removed from the InstagramAccount model, and moved into InstagramAccountObserver.
+This clearly was a code smell, so after some research, I tried re-factoring the callbacks into an Observer class. This resulted in the `after_create` and `after_save` hooks being removed from the InstagramAccount model, and moved into InstagramAccountObserver.
 
 {% highlight ruby %}
 class InstagramAccountObserver < ActiveRecord::Observer
@@ -147,10 +147,11 @@ describe InstagramAccount do
     end
   end
 end
-{% endhighlight }
+{% endhighlight %}
 
 
 After all this, I started reading up on how, in general, callbacks may be code smells in general - even those in Observers:
+
 * http://adequate.io/culling-the-activerecord-lifecycle
 
 I'm not sure if I could implement the collaborating object per that blog post, but I'm going to continue to mull over it.
