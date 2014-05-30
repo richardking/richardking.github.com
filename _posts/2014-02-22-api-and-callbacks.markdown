@@ -5,7 +5,7 @@ date:   2014-02-22 12:17:10
 categories: ruby rails
 ---
 
-How to include API calls in Rails callback hooks without blowing up your tests
+### How to include API calls in Rails callback hooks without blowing up your tests
 
 While integrating an Instagram media consumer into our app, I ran into a unique use case- I needed to call the Instagram API during model creation/modification, but including `after_create` and `after_save` callback hooks in the model would make my RSpec tests fail. This was because if I used `FactoryGirl.create` to create that model, it would try to make an unnecessary API call.
 

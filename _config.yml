@@ -1,3 +1,30 @@
-name: Richard King
-markdown: kramdown
-highlighter: pygments
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Richard King
+tagline:          
+description:      'Mostly tech'
+url:              http://richardking.github.io
+paginate:         5
+
+author:
+  name:           'Richard King'
+  url:            https://twitter.com/richardking
+
+# Custom vars
+version:          1.0.0
+
+github:
+  repo:           https://github.com/richardking/richardking.github.io
+
+pages_list:
+  About: '/about/'
+  Posts: '/posts/'
+  Feed: '/atom.xml'
+
+baseurl: '/'
