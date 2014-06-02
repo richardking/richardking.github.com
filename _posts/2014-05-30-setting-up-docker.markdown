@@ -1,8 +1,6 @@
 ### What is Docker
 
-Docker[^docker] is an open-source project that automates the deployment of applications inside software containers. You can use Chef or Puppet to try and configure a local environment a certain, very specific way, but even a small difference in the original environments (OS update, environment variables, etc) could cause issues down the road. I'm sure everyone has run into the problem of an application working in someone else's local environment but not yours.
-
-By packaging an application up with all of its dependencies (essentially snapshotting the OS in a quick, easy and repeatable way), Docker tries to solve that problem.
+Docker is an open-source project that automates the deployment of applications inside software containers. I won't get into the technical details, which I think are best explained on the Docker [website](https://www.docker.io/the_whole_story) itself. But basically its tagline is 'build once, run anywhere'; instead of having to configure an environment through scripts a la Chef or Puppet, you can package up an entire environment along with the app and run it again on another machine. It is similar to a Virtual Machine, but it uses your current OS and, where appropriate, bins and libraries, so there's virtually no performance or start-up penalty.
 
 ### Getting started with Docker
 
@@ -18,7 +16,7 @@ The rest of the instructions to get ```boot2docker``` up are straightforward. Ju
 
 ### Testing your Docker installation
 
-The next step is to run a simple command within a Docker container. This page walks you through the steps of printing out "Hello World" from within a Docker container: http://docs.docker.io/examples/hello_world/. Pay particular attention to the syntax of running a command in a Docker container:
+The next step is to run a simple command within a Docker container. This page walks you through the steps of printing out "Hello World" from within a Docker container: <http://docs.docker.io/examples/hello_world/>. Pay particular attention to the syntax of running a command in a Docker container:
 
 > ```$ sudo docker run busybox /bin/echo hello world```
 
@@ -42,7 +40,7 @@ docker images
 
 A Docker image is a read-only layer[^layer] that never changes. These are self-contained environments that can be passed around and will run exactly the same from machine to machine.
 
-Similar to github, Docker has its own online public (and private) repository at http://index.docker.io. In the **Testing your Docker installation** section, when you ran ```sudo docker pull busybox```, it looks for and then downloads the ```busybox``` repository from index.docker.io. You can also push your own images onto the Docker index with ```docker push [name of image]```.
+Similar to github, Docker has its own online public (and private) repository at <http://index.docker.io>. In the **Testing your Docker installation** section, when you ran ```sudo docker pull busybox```, it looks for and then downloads the ```busybox``` repository from index.docker.io. You can also push your own images onto the Docker index with ```docker push [name of image]```.
 
 #### Listing Docker containers
 Once you have an image, you can run a command on it. Any images that have had a command run within it, or any image that have a command currently running on it, can be displayed using:
@@ -70,11 +68,5 @@ To manually stop a container, you run ```docker stop [container id]```.
 
 #### Removing a Docker container
 All stopped containers will continue to exist, so you can restart them at any point using ```docker start [container id]```. To completely remove a container, you can run ```docker rm [container id]```.
-### Dockerfile
 
-
-### Linking containers
-
-[^docker]: Full background at https://www.docker.io/the_whole_story/
-
-[^layer]: http://docs.docker.io/terms/layer/#layer-def
+[^layer]: <http://docs.docker.io/terms/layer/#layer-def>
