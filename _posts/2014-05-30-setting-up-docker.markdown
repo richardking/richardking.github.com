@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Getting started with Docker on a Mac"
+date:   2014-05-30 12:14:19
+categories: ruby rails
+---
+
 ### What is Docker
 
 Docker is an open-source project that automates the deployment of applications inside software containers. I won't get into the technical details, which I think are best explained on the Docker [website](https://www.docker.io/the_whole_story) itself. But basically its tagline is 'build once, run anywhere'; instead of having to configure an environment through scripts a la Chef or Puppet, you can package up an entire environment along with the app and run it again on another machine. It is similar to a Virtual Machine, but it uses your current OS and, where appropriate, bins and libraries, so there's virtually no performance or start-up penalty.
