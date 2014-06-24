@@ -44,7 +44,7 @@ end
 
 As you can see, it includes an `after_create` callback to ping the Instagram API to get the user's `instagram_id` and `full_name`. It also has an `after_save` callback to ping the Instagram API to follow or unfollow the user on our configured Instagram account.
 
-This resulted in a complicated model test where I had to instantiated the `InstagramAccount` object, then stub the two callbacks out, before actually saving it to the test database. Being in Rails 2 made it extra ugly because I couldn't use the `#any_instance` RSpec helper.
+This resulted in a complicated model test where I had to instantiate the `InstagramAccount` object, then stub the two callbacks out, before actually saving it to the test database. Being in Rails 2 made it extra ugly because I couldn't use the `#any_instance` RSpec helper.
 
 {% highlight ruby %}
 require 'spec_helper'
@@ -66,7 +66,7 @@ describe InstagramSyncFollowingWorker do
 end
 {% endhighlight %}
 
-The controller spec was even more convoluted, because I could actually instantiate an object and stub out the instance methods, since the controller handles all of that. So I had to monkey-patch the model, and also un-monkey-patch it so it didn't affect subsequent tests.
+The controller spec was even more convoluted, because I couldn't actually instantiate an object and stub out the instance methods, since the controller handles all of that. So I had to monkey-patch the model, and also un-monkey-patch it so it didn't affect subsequent tests.
 
 {% highlight ruby %}
 require 'spec_helper'
