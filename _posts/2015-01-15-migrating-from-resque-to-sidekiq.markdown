@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Migrating from Resque to Sidekiq
-published: false
-categories:
+categories: ruby rails
 ---
 
 
