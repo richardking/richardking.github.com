@@ -29,7 +29,7 @@ In these cases, I just needed to change ```Resque``` to ```Sidekiq::Client```; t
 Configuring Sidekiq is pretty straightforward as well too. Sidekiq is on a client/server framework, which is explained [here](https://github.com/mperham/sidekiq/wiki/The-Basics). Essentially the client process runs your web app process and allows you to push jobs into the background for processing. The server process pulls jobs from the Redis queue and processes them.
 
 Thus you need to configure both ```Sidekiq.client``` and ```Sidekiq.server``` but thankfully they are quick. In ```config/initializers/sidekiq.rb```, you need to require the sidekiq files, find your Redis url and point both the Sidekiq client and server at it. Our ```sidekiq.rb``` looks like this:
-```
+{% highlight ruby %}
 require 'sidekiq'
 require 'sidekiq/web'
 
@@ -43,7 +43,7 @@ end
 Sidekiq.configure_client do |config|
   config.redis = { url: redis_url }
 end
-```
+{% endhighlight %}
 
 I've also added a few other configuration lines to that file. One so that sidekiq doesn't retry a job over and over again if it fails:
 ```
